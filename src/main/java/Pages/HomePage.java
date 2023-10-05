@@ -7,5 +7,8 @@ public class HomePage {
     public HomePage (WebDriver driver){
         this.driver = driver;
     }
+    public RegisterPage clickRegister_Nav(){
+        return new RegisterPage(driver);
+    }
 
 }

@@ -14,13 +14,12 @@ public class BaseTests {
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
     }
-
     @BeforeMethod
     public void goToHomePage(){
         driver.get("https://demo.nopcommerce.com/");
     }
     @AfterClass
     public void tearDown(){
-        driver.quit();
+        //driver.quit();
     }
 }
