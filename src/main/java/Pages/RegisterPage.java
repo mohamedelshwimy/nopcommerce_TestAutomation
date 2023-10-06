@@ -76,4 +76,7 @@ public class RegisterPage {
     public void clickRegisterButton(){
         driver.findElement(registerButton).click();
     }
+    public RegisterCompletePage registerComplete(){
+        return new RegisterCompletePage(driver);
+    }
 }
