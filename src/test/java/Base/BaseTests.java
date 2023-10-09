@@ -15,8 +15,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 public class BaseTests {
     private WebDriver driver;
@@ -36,15 +34,27 @@ public class BaseTests {
     public void tearDown(){
         //driver.quit();
     }
+    @DataProvider
+    public Object [] [] logInData ()
+    {
+        Object [][] data = new Object [3][2];
 
+        data [0][0] = "TestNG@Framework.com";		data [0][1] = "TestNG1234";
+        data [1][0] = "Joe@Doe.com";			    data [1][1] = "DoeDoe34";
+        data [2][0] = "Test@AutomationU.com";		data [2][1] = "TAU1234";
+
+        return data;
+    }
     @DataProvider
     public static Object[][] ReadVariant() throws IOException {
         String excelPath = "H:\\ITI\\Test Automation University\\Selenium WebDriver with Java\\nopCommerce\\nopCommerce\\src\\main\\resources\\TestData\\TestData.xlsx";
-        FileInputStream fileInputStream= new FileInputStream(excelPath);
         DataFormatter formatter = new DataFormatter();
+
+        FileInputStream fileInputStream= new FileInputStream(excelPath);
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
         XSSFSheet worksheet = workbook.getSheetAt(0);
         XSSFRow Row=worksheet.getRow(0);
+
         int RowNum = worksheet.getPhysicalNumberOfRows();// count my number of Rows
         int ColNum = Row.getLastCellNum(); // get last ColNum
         Object Data[][]= new Object[RowNum-1][ColNum]; // pass my  count data in array
@@ -52,7 +62,6 @@ public class BaseTests {
         for(int i=0; i<RowNum-1; i++) //Loop work for Rows
         {
             XSSFRow row= worksheet.getRow(i+1);
-
             for (int j=0; j<ColNum; j++) //Loop work for colNum
             {
                 if(row==null)
