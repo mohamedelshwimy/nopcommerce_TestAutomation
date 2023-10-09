@@ -18,6 +18,7 @@ public class BaseTests {
     public void goToHomePage(){
         driver.get("https://demo.nopcommerce.com/");
     }
+
     @AfterClass
     public void tearDown(){
         //driver.quit();

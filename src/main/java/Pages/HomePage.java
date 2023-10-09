@@ -10,6 +10,8 @@ public class HomePage {
     public RegisterPage clickRegister_Nav(){
         return new RegisterPage(driver);
     }
-    public LoginPage clickLogin_Nav(){return new LoginPage(driver);}
+    public LoginPage clickLogin_Nav(){
+        return new LoginPage(driver);
+    }
 
 }
