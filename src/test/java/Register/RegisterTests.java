@@ -8,13 +8,13 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class RegisterTests extends BaseTests {
-    @Test(dataProvider = "logInData")
-    public void testRegister(String email,String pass) {
+    @Test(dataProvider = "ReadVariant")
+    public void testRegister(String fname,String lname, String email,String pass) {
         RegisterPage registerPage = homePage.clickRegister_Nav();
         registerPage.navToRegister();
         registerPage.selectGender("male");
-        registerPage.setFirstName("Mohamed");
-        registerPage.setLastName("Ahmed");
+        registerPage.setFirstName(fname);
+        registerPage.setLastName(lname);
         registerPage.selectDay("1");
         registerPage.selectMonth("November");
         registerPage.selectYear("1997");

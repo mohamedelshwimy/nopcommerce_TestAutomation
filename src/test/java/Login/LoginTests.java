@@ -10,7 +10,8 @@ import static org.testng.Assert.*;
 public class LoginTests extends BaseTests {
 
     @Test(dataProvider = "logInData")
-    public void testLogin(String email,String pass){
+    public void testLogin(String email, String pass){
+
         LoginPage loginPage = homePage.clickLogin_Nav();
         loginPage.navToLogin();
         loginPage.setEmailField(email);
@@ -25,7 +26,6 @@ public class LoginTests extends BaseTests {
     public Object [] [] logInData ()
     {
         Object [][] data = new Object [3][2];
-
         data [0][0] = "TestNG@Framework.com";		data [0][1] = "TestNG1234";
         data [1][0] = "Joe@Doe.com";			    data [1][1] = "DoeDoe34";
         data [2][0] = "Test@AutomationU.com";		data [2][1] = "TAU1234";

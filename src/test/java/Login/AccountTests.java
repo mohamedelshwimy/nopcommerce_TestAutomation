@@ -2,12 +2,15 @@ package Login;
 
 import Pages.AccountPage;
 import Pages.LoginPage;
+import org.mohamedelshwimy.ReadData;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class AccountTests extends LoginTests{
-    @Test(dataProvider = "logInData")
-    public void testAccountChanges(String email,String pass){
+
+
+    @Test(dataProvider = "ReadVariant")
+    public void testAccountChanges(String fname,String lname, String email,String pass){
         LoginPage loginPage = homePage.clickLogin_Nav();
         loginPage.navToLogin();
         loginPage.setEmailField(email);
@@ -23,7 +26,7 @@ public class AccountTests extends LoginTests{
 
         loginPage.clickLogout();
         //assertEquals(loginPage.getInvalidText(),"Login was unsuccessful. Please correct the errors and try again.\nNo customer account found","Error in assertion");
-
     }
+
 
 }
