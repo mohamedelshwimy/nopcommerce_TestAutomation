@@ -10,11 +10,13 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 
 public class BaseTests {
     private WebDriver driver;
@@ -53,7 +55,7 @@ public class BaseTests {
         FileInputStream fileInputStream= new FileInputStream(excelPath);
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
         XSSFSheet worksheet = workbook.getSheetAt(0);
-        XSSFRow Row=worksheet.getRow(0);
+        XSSFRow Row = worksheet.getRow(0);
 
         int RowNum = worksheet.getPhysicalNumberOfRows();// count my number of Rows
         int ColNum = Row.getLastCellNum(); // get last ColNum

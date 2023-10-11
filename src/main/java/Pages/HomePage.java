@@ -13,5 +13,7 @@ public class HomePage {
     public LoginPage clickLogin_Nav(){
         return new LoginPage(driver);
     }
-
+    public BooksPage goToBooks(){
+        return new BooksPage(driver);
+    }
 }
