@@ -7,11 +7,15 @@ import org.openqa.selenium.WebElement;
 
 public class CartPage{
     private WebDriver driver;
-    private WebElement caption;
     public CartPage(WebDriver driver){this.driver = driver;}
-    public CartPage(WebElement caption){
-        this.caption=caption;
+
+    //Locators
+    private By cartTable = By.cssSelector(".cart");
+
+    public Boolean checkVisibilityOfCartTable(){
+        return driver.findElement(cartTable).isDisplayed();
     }
+
 
 
 }

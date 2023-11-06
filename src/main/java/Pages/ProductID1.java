@@ -18,6 +18,9 @@ public class ProductID1 {
     private By hddRadio = By.id("product_attribute_3_6");
     private By osRadio = By.id("product_attribute_4_9");
     private By addToCart = By.id("add-to-cart-button-1");
+    private By successNotification = By.xpath("//p[@class='content']");
+    private By closeNotification = By.xpath("//span[@class='close']");
+    private By goToCart = By.xpath("//span[@class='cart-label']");
 
     public void selectProcessor(String option){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -37,5 +40,19 @@ public class ProductID1 {
     }
     public void clickAddToCart(){
         driver.findElement(addToCart).click();
+    }
+    public String getNotificationText(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.presenceOfElementLocated(successNotification));
+        return driver.findElement(successNotification).getText();
+    }
+    public void closeNotification(){
+        driver.findElement(closeNotification).click();
+    }
+    public CartPage navToCart(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.presenceOfElementLocated(goToCart));
+        driver.findElement(goToCart).click();
+        return new CartPage(driver);
     }
 }
