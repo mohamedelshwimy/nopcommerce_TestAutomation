@@ -7,18 +7,17 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class FullScenario extends BaseTests {
-    public static CartPage cartPage;
+    public CartPage cartPage;
+    private String email = "mohamed4@gmail.com";
+    private String pass = "12345678";
     @Test
     public void fullUserPurchaseScenario(){
-        String email = "mohamed4@gmail.com";
-        String pass = "12345678";
         //testSuccessfulRegister("Mohamed","Ahmed",email,pass);
         homePage.clickLogin_Nav();
         testSuccessfulLogin(email,pass);
         fillProductID1();
         assertEquals(cartPage.checkVisibilityOfCartTable(),true,"table not visible");
         }
-
 
     public void testSuccessfulRegister(String fname,String lname, String email,String pass) {
         RegisterPage registerPage = homePage.clickRegister_Nav();
