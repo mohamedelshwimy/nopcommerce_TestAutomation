@@ -49,7 +49,9 @@ public class BaseTests {
     }
     @DataProvider
     public static Object[][] ReadVariant() throws IOException {
+
         String excelPath = "H:\\ITI\\Test Automation University\\Selenium WebDriver with Java\\nopCommerce\\nopCommerce\\src\\main\\resources\\TestData\\TestData.xlsx";
+
         DataFormatter formatter = new DataFormatter();
 
         FileInputStream fileInputStream= new FileInputStream(excelPath);
@@ -59,6 +61,7 @@ public class BaseTests {
 
         int RowNum = worksheet.getPhysicalNumberOfRows();// count my number of Rows
         int ColNum = Row.getLastCellNum(); // get last ColNum
+
         Object Data[][]= new Object[RowNum-1][ColNum]; // pass my  count data in array
 
         for(int i=0; i<RowNum-1; i++) //Loop work for Rows
