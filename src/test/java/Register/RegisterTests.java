@@ -34,4 +34,5 @@ public class RegisterTests extends BaseTests {
         registerPage.clickRegisterButton();
     }
 
+
 }
