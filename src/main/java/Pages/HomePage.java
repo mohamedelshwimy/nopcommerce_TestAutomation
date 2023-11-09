@@ -11,7 +11,10 @@ public class HomePage {
     private By currencyDropDown = By.id("customerCurrency");
     private By logout_nav = By.className("ico-logout");
     private By productID1 = By.xpath("//div[@data-productid=('1')]");
-    private By addProduct1ToCart = By.xpath("//div[@data-productid=('1')]//button[contains(text(),'Add to cart')]");
+    private By addProduct1ToCart =
+            By.xpath("//div[@data-productid=('1')]//button[contains(text(),'Add to cart')]");
+    private By searchField = By.id("small-searchterms");
+    private By searchButton = By.xpath("//button[@type='submit']"); //classname "button-1 search-box-button"
 
 
     public HomePage (WebDriver driver){
@@ -44,6 +47,16 @@ public class HomePage {
         scrollToProducts();
         driver.findElement(addProduct1ToCart).click();
         return new ProductID1(driver);
+    }
+    public Boolean checkLoginSuccessful(){
+        return driver.findElement(logout_nav).isDisplayed();
+    }
+    public void searchProduct(String product){
+        driver.findElement(searchField).sendKeys(product);
+    }
+    public SearchPage clickSearchButton(){
+        driver.findElement(searchButton).click();
+        return new SearchPage(driver);
     }
 
 }

@@ -23,7 +23,7 @@ public class ProductID1 {
     private By goToCart = By.xpath("//span[@class='cart-label']");
 
     public void selectProcessor(String option){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(ExpectedConditions.presenceOfElementLocated(processorSelection));
         Select processor = new Select(driver.findElement(processorSelection));
         processor.selectByVisibleText(option);
@@ -42,16 +42,15 @@ public class ProductID1 {
         driver.findElement(addToCart).click();
     }
     public String getNotificationText(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(ExpectedConditions.presenceOfElementLocated(successNotification));
         return driver.findElement(successNotification).getText();
     }
     public void closeNotification(){
         driver.findElement(closeNotification).click();
     }
-    public CartPage navToCart(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.presenceOfElementLocated(goToCart));
+    public CartPage navToCart() throws InterruptedException {
+        Thread.sleep(1000);
         driver.findElement(goToCart).click();
         return new CartPage(driver);
     }

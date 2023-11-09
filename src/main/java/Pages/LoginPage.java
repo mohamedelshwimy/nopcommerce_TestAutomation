@@ -22,7 +22,6 @@ public class LoginPage {
 
     //Methods
     public void navToLogin(){
-
         driver.findElement(loginNavBar).click();
     }
     public void setEmailField (String email){

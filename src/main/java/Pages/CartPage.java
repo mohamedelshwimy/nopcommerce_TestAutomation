@@ -11,9 +11,19 @@ public class CartPage{
 
     //Locators
     private By cartTable = By.cssSelector(".cart");
+    private By termsOfService = By.id("termsofservice");
+    private By checkoutBtn = By.id("checkout");
 
     public Boolean checkVisibilityOfCartTable(){
         return driver.findElement(cartTable).isDisplayed();
+    }
+    public void acceptTermsOfService(){
+        driver.findElement(termsOfService).click();
+    }
+    public CheckoutPage clickCheckOut(){
+
+        driver.findElement(checkoutBtn).click();
+        return new CheckoutPage(driver);
     }
 
 

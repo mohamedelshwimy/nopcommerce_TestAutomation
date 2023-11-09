@@ -6,6 +6,8 @@ import org.mohamedelshwimy.ReadData;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
+
 public class AccountTests extends LoginTests{
 
 
@@ -17,15 +19,16 @@ public class AccountTests extends LoginTests{
         loginPage.setPassField(pass);
         loginPage.setRememberCheck();
         loginPage.clickLogin();
+        assertEquals(loginPage.getInvalidText(),
+                "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found",
+                "Error in assertion");
         AccountPage accountPage = loginPage.clickMyAccount();
         accountPage.clickMyAcc();
         accountPage.clickCustomerInfo();
         accountPage.clickAddresses();
         accountPage.clickDownloadableProducts();
         accountPage.clickOrders();
-
         loginPage.clickLogout();
-        //assertEquals(loginPage.getInvalidText(),"Login was unsuccessful. Please correct the errors and try again.\nNo customer account found","Error in assertion");
     }
 
 

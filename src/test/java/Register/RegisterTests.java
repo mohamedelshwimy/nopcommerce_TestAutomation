@@ -26,7 +26,6 @@ public class RegisterTests extends BaseTests {
         registerPage.clickRegisterButton();
     }
 
-
     @Test
     public void testRegisterEmptyFields(){
         RegisterPage registerPage = homePage.clickRegister_Nav();
