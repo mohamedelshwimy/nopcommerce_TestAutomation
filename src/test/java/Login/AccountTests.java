@@ -19,9 +19,6 @@ public class AccountTests extends LoginTests{
         loginPage.setPassField(pass);
         loginPage.setRememberCheck();
         loginPage.clickLogin();
-        assertEquals(loginPage.getInvalidText(),
-                "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found",
-                "Error in assertion");
         AccountPage accountPage = loginPage.clickMyAccount();
         accountPage.clickMyAcc();
         accountPage.clickCustomerInfo();

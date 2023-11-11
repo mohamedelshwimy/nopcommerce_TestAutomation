@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 public class RegisterPage {
     private WebDriver driver;
     private By register = By.className("ico-register");
+    private By registerText = By.xpath("//div[@class='page-title']/h1");
     //Gender Selection Start
     private String genderMale = "gender-male";
     private String genderFemale = "gender-female";
@@ -15,7 +16,9 @@ public class RegisterPage {
     //Gender Selection End
 
     private By firstName = By.id("FirstName");
+    private By firstNameError = By.id("FirstName-error");
     private By lastName = By.id("LastName");
+    private By lastNameError = By.id("LastName-error");
 
     //Date Selection Start
     private By date_day = By.xpath("//select[@name='DateOfBirthDay']");
@@ -78,5 +81,14 @@ public class RegisterPage {
     }
     public RegisterCompletePage registerComplete(){
         return new RegisterCompletePage(driver);
+    }
+    public String getRegisterText(){
+        return driver.findElement(registerText).getText();
+    }
+    public String getFirstNameErrorMsg(){
+        return driver.findElement(firstNameError).getText();
+    }
+    public String getLastNameErrorMsg(){
+        return driver.findElement(lastNameError).getText();
     }
 }

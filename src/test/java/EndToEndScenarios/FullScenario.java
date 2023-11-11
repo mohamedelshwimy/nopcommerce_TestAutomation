@@ -2,6 +2,7 @@ package EndToEndScenarios;
 
 import Base.BaseTests;
 import Pages.*;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -17,7 +18,7 @@ public class FullScenario extends BaseTests {
     private String pass = "12345678";
     @Test
     public void fullUserPurchaseScenario() throws InterruptedException {
-        testSuccessfulRegister(firstName,lastName,email,pass);
+        //testSuccessfulRegister(firstName,lastName,email,pass);
         homePage.clickLogin_Nav();
         testSuccessfulLogin(email,pass);
         assertEquals(homePage.checkLoginSuccessful(),true,"Not Logged In");

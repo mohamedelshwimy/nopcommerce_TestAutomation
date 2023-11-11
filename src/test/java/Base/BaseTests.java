@@ -10,6 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import java.io.File;
@@ -34,11 +35,10 @@ public class BaseTests {
 
     @AfterClass
     public void tearDown(){
-        //driver.quit();
+        driver.quit();
     }
     @DataProvider
-    public Object [] [] logInData ()
-    {
+    public Object [] [] logInData () {
         Object [][] data = new Object [3][2];
 
         data [0][0] = "TestNG@Framework.com";		data [0][1] = "TestNG1234";

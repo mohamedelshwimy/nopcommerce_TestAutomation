@@ -21,7 +21,7 @@ public class CheckoutCompletePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(confirmationMsg));
         return driver.findElement(confirmationMsg).getText();
     }
-    public HomePage clickLastContinueBtn() throws InterruptedException {
+    public HomePage clickLastContinueBtn(){
         wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(ExpectedConditions.elementToBeClickable(lastContinueBtn));
         driver.findElement(lastContinueBtn).click();

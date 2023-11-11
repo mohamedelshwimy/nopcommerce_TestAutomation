@@ -12,7 +12,7 @@ public class AddProductToCart extends BaseTests {
     ProductID1 productID1;
     CartPage cartPage;
     @Test
-    public void addProductID1ToCart() throws InterruptedException {
+    public void addProductID1ToCartThenRemove() throws InterruptedException {
         productID1 = homePage.clickProduct1Cart();
         String option = "2.2 GHz Intel Pentium Dual-Core E2200"; //"2.5 GHz Intel Pentium Dual-Core E2200 [+$15.00]"
         productID1.selectProcessor(option); //Added WebDriverWait to selectProcessor Method because of NoSuchElementException

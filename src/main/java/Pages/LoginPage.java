@@ -1,7 +1,12 @@
 package Pages;
 
+import org.apache.commons.math3.analysis.function.Exp;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage {
     private WebDriver driver;
@@ -9,6 +14,7 @@ public class LoginPage {
     //Locators
     private By loginNavBar = By.className("ico-login");
     private By logOutNavBar = By.className("ico-logout");
+    private By welcomeText = By.xpath("//div[@class='page-title']/h1");
     private By emailField = By.id("Email");
     private By passField = By.id("Password");
     private By rememberCheck = By.id("RememberMe");
@@ -56,5 +62,9 @@ public class LoginPage {
     public AccountPage clickMyAccount(){
         return new AccountPage(driver);
     }
-
+    public String getWelcomeSignInText (){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(welcomeText));
+        return driver.findElement(welcomeText).getText();
+    }
 }

@@ -61,10 +61,9 @@ public class ValidSearchProductTest extends BaseTests {
     }
 
     @DataProvider
-    public Object [] productNames ()
-    {
+    public Object [] productNames () {
         Object [] data = new Object [6];
-        data [0] = "Apple MacBook Pro 13-inch";
+        data [0]= "Apple MacBook Pro 13-inch";
         data [1]= "Build your own computer";
         data [2]= "HTC One M8 Android L 5.0 Lollipop";
         data [3]= "Nokia Lumia 1020";
@@ -72,5 +71,4 @@ public class ValidSearchProductTest extends BaseTests {
         data [5]= "Night Visions";
         return data;
     }
-
 }

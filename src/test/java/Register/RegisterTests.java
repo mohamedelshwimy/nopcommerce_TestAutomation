@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class RegisterTests extends BaseTests {
-    @Test(dataProvider = "ReadVariant")
+    @Test(dataProvider = "ReadVariant" , priority = -1)
     public void testRegister(String fname,String lname, String email,String pass) {
         RegisterPage registerPage = homePage.clickRegister_Nav();
         registerPage.navToRegister();
@@ -24,13 +24,20 @@ public class RegisterTests extends BaseTests {
         registerPage.setPassField(pass);
         registerPage.setConfirmPass(pass);
         registerPage.clickRegisterButton();
+        RegisterCompletePage registerCompletePage = registerPage.registerComplete();
+        assertEquals(registerCompletePage.registerCompleteText(),"Your registration completed","Issue in register");
     }
-
     @Test
-    public void testRegisterEmptyFields(){
+    public void testInvalidRegister(){
         RegisterPage registerPage = homePage.clickRegister_Nav();
         registerPage.navToRegister();
         registerPage.clickRegisterButton();
+        assertEquals(registerPage.getFirstNameErrorMsg(),
+                "First name is required.",
+                "Fname Error msg didn't appear");
+        assertEquals(registerPage.getLastNameErrorMsg(),
+                "Last name is required.",
+                "Lname Error msg didn't appear");
     }
 
 

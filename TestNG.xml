@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="H:/ITI/Test Automation University/Selenium WebDriver with Java/nopCommerce/nopCommerce/src/test">
+        <classes>
+            <class name="AddProduct.AddProductToCart">
+                <methods>
+                    <include name="addProductID1ToCartThenRemove"/>
+                </methods>
+            </class>
+            <class name="AddProduct.AddProductsToWishList">
+                <methods>
+                    <include name="testAddingProductToWishlist"/>
+                </methods>
+            </class>
+            <class name="AddProduct.CheckEmptyCart">
+                <methods>
+                    <include name="checkEmptyCartText"/>
+                </methods>
+            </class>
+            <class name="AddProduct.CheckEmptyWishlist">
+                <methods>
+                    <include name="testEmptyWishlist"/>
+                </methods>
+            </class>
+            <class name="EndToEndScenarios.FullScenario">
+                <methods>
+                    <include name="fullUserPurchaseScenario"/>
+                </methods>
+            </class>
+            <class name="HomePageTests.NavigationBarElementsTests">
+                <methods>
+                    <include name="testLoginBtnNavBar"/>
+                    <include name="testRegisterBtnNavBar"/>
+                    <include name="testCartBtnNavBar"/>
+                    <include name="testDropDown"/>
+                    <include name="testWishlistBtnNavBar"/>
+                </methods>
+            </class>
+            <class name="Login.AccountTests">
+                <methods>
+                    <include name="testAccountChanges"/>
+                </methods>
+            </class>
+            <class name="Login.LoginTests">
+                <methods>
+                    <include name="testInvalidLogin"/>
+                </methods>
+            </class>
+            <class name="Register.RegisterTests">
+                <methods>
+                    <include name="testRegister"/>
+                    <include name="testInvalidRegister"/>
+                </methods>
+            </class>
+            <class name="SearchTests.InvalidSearch">
+                <methods>
+                    <include name="testInvalidSearchProduct"/>
+                    <include name="searchEmptyField"/>
+                    <include name="searchWithSpecialCharacters"/>
+                </methods>
+            </class>
+            <class name="SearchTests.ValidSearchProductTest">
+                <methods>
+                    <include name="testSearchProduct"/>
+                    <include name="sortByPriceAfterSearch"/>
+                    <include name="sortByAlphabeticalOrderSearch"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
