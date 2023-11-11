@@ -13,6 +13,13 @@ public class HomePage {
     private By productID1 = By.xpath("//div[@data-productid=('1')]");
     private By addProduct1ToCart =
             By.xpath("//div[@data-productid=('1')]//button[contains(text(),'Add to cart')]");
+    private By addProduct4ToCart =
+            By.xpath("//div[@data-productid=('4')]//button[contains(text(),'Add to cart')]");
+    private By addProduct18ToCart =
+            By.xpath("//div[@data-productid=('18')]//button[contains(text(),'Add to cart')]");
+    private By goToCart = By.className("ico-cart");
+    private By goToWishlist = By.className("ico-cart");
+
     private By searchField = By.id("small-searchterms");
     private By searchButton = By.xpath("//button[@type='submit']"); //classname "button-1 search-box-button"
 
@@ -57,6 +64,10 @@ public class HomePage {
     public SearchPage clickSearchButton(){
         driver.findElement(searchButton).click();
         return new SearchPage(driver);
+    }
+    public CartPage goToEmptyCart(){
+        driver.findElement(goToCart).click();
+        return new CartPage(driver);
     }
 
 }

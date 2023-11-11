@@ -8,39 +8,30 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ProductID1 {
+public class ProductID4 {
     private WebDriver driver;
-    public ProductID1(WebDriver driver) {
+    public ProductID4(WebDriver driver) {
         this.driver = driver;
     }
-    private By processorSelection = By.id("product_attribute_1");
-    private By ramSelection = By.id("product_attribute_2");
-    private By hddRadio = By.id("product_attribute_3_6");
-    private By osRadio = By.id("product_attribute_4_9");
-    private By addToCart = By.id("add-to-cart-button-1");
+
+    //Locators
+    private By productQnty= By.id("product_enteredQuantity_4");
+    private By addToCart = By.id("add-to-cart-button-4");
+    private By addToWishlist = By.id("add-to-wishlist-button-4");
+    private By addToCompare = By.xpath("//div[@class='compare-products']/button");
     private By successNotification = By.xpath("//p[@class='content']");
     private By closeNotification = By.xpath("//span[@class='close']");
     private By goToCart = By.xpath("//span[@class='cart-label']");
 
-    public void selectProcessor(String option){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-        wait.until(ExpectedConditions.presenceOfElementLocated(processorSelection));
-        Select processor = new Select(driver.findElement(processorSelection));
-        processor.selectByVisibleText(option);
-    }
-    public void selectRam(int index){
-        Select ram = new Select(driver.findElement(ramSelection));
-        ram.selectByIndex(index);
-    }
-    public void selectHDD(){
-        driver.findElement(hddRadio).click();
-    }
-    public void selectOS(){
-        driver.findElement(osRadio).click();
+    //Methods
+    public void setProductQnty(String qnty){
+        driver.findElement(productQnty).clear();
+        driver.findElement(productQnty).sendKeys(qnty);
     }
     public void clickAddToCart(){
         driver.findElement(addToCart).click();
     }
+
     public String getNotificationText(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(ExpectedConditions.presenceOfElementLocated(successNotification));
@@ -50,8 +41,20 @@ public class ProductID1 {
         driver.findElement(closeNotification).click();
     }
     public CartPage navToCart() throws InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(1000);
         driver.findElement(goToCart).click();
         return new CartPage(driver);
     }
+    public String getProductCompareSuccessText(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.presenceOfElementLocated(successNotification));
+        return driver.findElement(successNotification).getText();
+    }
+    public String getProductAddedToWishlistText(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.presenceOfElementLocated(successNotification));
+        return driver.findElement(successNotification).getText();
+    }
+
+
 }
