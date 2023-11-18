@@ -4,6 +4,22 @@
     <test verbose="2" preserve-order="true"
           name="H:/ITI/Test Automation University/Selenium WebDriver with Java/nopCommerce/nopCommerce/src/test">
         <classes>
+            <class name="Register.RegisterTests">
+                <methods>
+                    <include name="testRegister"/>
+                    <include name="testInvalidRegister"/>
+                </methods>
+            </class>
+            <class name="Login.LoginTests">
+                <methods>
+                    <include name="testInvalidLogin"/>
+                </methods>
+            </class>
+            <class name="Login.AccountTests">
+                <methods>
+                    <include name="testAccountChanges"/>
+                </methods>
+            </class>
             <class name="AddProduct.AddProductToCart">
                 <methods>
                     <include name="addProductID1ToCartThenRemove"/>
@@ -36,22 +52,6 @@
                     <include name="testCartBtnNavBar"/>
                     <include name="testDropDown"/>
                     <include name="testWishlistBtnNavBar"/>
-                </methods>
-            </class>
-            <class name="Login.AccountTests">
-                <methods>
-                    <include name="testAccountChanges"/>
-                </methods>
-            </class>
-            <class name="Login.LoginTests">
-                <methods>
-                    <include name="testInvalidLogin"/>
-                </methods>
-            </class>
-            <class name="Register.RegisterTests">
-                <methods>
-                    <include name="testRegister"/>
-                    <include name="testInvalidRegister"/>
                 </methods>
             </class>
             <class name="SearchTests.InvalidSearch">

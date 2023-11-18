@@ -66,6 +66,8 @@ public class HomePage {
         return new ProductID1(driver);
     }
     public Boolean checkLoginSuccessful(){
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.elementToBeClickable(logout_nav));
         return driver.findElement(logout_nav).isDisplayed();
     }
     public void searchProduct(String product){
