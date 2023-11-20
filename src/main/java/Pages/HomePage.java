@@ -105,7 +105,7 @@ public class HomePage {
         driver.findElement(wishlistProduct18).click();
     }
     public String getWishlistNotificationText(){
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(2));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(wishlistNotification));
         return driver.findElement(wishlistNotification).getText();
     }

@@ -42,7 +42,7 @@ public class ProductID1 {
         driver.findElement(addToCart).click();
     }
     public String getNotificationText(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(successNotification));
         return driver.findElement(successNotification).getText();
     }
