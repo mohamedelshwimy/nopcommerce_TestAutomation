@@ -50,7 +50,7 @@ public class BaseTests {
     @DataProvider
     public static Object[][] ReadVariant() throws IOException {
 
-        String excelPath = "H:\\ITI\\Test Automation University\\Selenium WebDriver with Java\\nopCommerce\\nopCommerce\\src\\main\\resources\\TestData\\TestData.xlsx";
+        String excelPath = "H:\\ITI\\Projects\\nopCommerce\\nopCommerce\\src\\main\\resources\\TestData\\TestData.xlsx";
 
         DataFormatter formatter = new DataFormatter();
 
@@ -60,7 +60,7 @@ public class BaseTests {
         XSSFRow Row = worksheet.getRow(0);
 
         int RowNum = worksheet.getPhysicalNumberOfRows();// count my number of Rows
-        int ColNum = Row.getLastCellNum(); // get last ColNum
+        int ColNum = Row.getLastCellNum();// get last ColNum
 
         Object Data[][]= new Object[RowNum-1][ColNum]; // pass my  count data in array
 

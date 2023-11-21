@@ -14,7 +14,7 @@ public class FullScenario extends BaseTests {
     public CheckoutCompletePage checkoutComplete;
     private String firstName = "Mohamed";
     private String lastName = "Ahmed";
-    private String email = "mohamed5@gmail.com";
+    private String email = "mohamed1297@gmail.com";
     private String pass = "12345678";
     @Test
     public void fullUserPurchaseScenario() throws InterruptedException {

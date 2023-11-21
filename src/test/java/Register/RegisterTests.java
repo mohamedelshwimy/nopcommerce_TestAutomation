@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class RegisterTests extends BaseTests {
-    @Test(dataProvider = "ReadVariant" , priority = -1)
+    @Test(dataProvider = "ReadVariant")
     public void testRegister(String fname,String lname, String email,String pass) {
         RegisterPage registerPage = homePage.clickRegister_Nav();
         registerPage.navToRegister();
