@@ -49,8 +49,10 @@ public class ProductID1 {
     public void closeNotification(){
         driver.findElement(closeNotification).click();
     }
-    public CartPage navToCart() throws InterruptedException {
-        Thread.sleep(500);
+    public CartPage navToCart(){
+        //Thread.sleep(500);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(goToCart));
         driver.findElement(goToCart).click();
         return new CartPage(driver);
     }

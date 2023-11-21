@@ -20,6 +20,8 @@ public class CheckoutPage {
     private By emailField = By.id("BillingNewAddress_Email");
     private By countryField = By.id("BillingNewAddress_CountryId");
     private By stateField = By.id("BillingNewAddress_StateProvinceId");
+    private By stateFieldChildLocator =
+            By.xpath("By.xpath(//select[@id='BillingNewAddress_StateProvinceId']//option[@value='53'])");
     private By cityField = By.id("BillingNewAddress_City");
     private By address1Field = By.id("BillingNewAddress_Address1");
     private By postalCodeField = By.id("BillingNewAddress_ZipPostalCode");
@@ -70,14 +72,13 @@ public class CheckoutPage {
         driver.findElement(emailField).clear();
         driver.findElement(emailField).sendKeys(email);
     }
-    public void setCountryField(int countryIndex) throws InterruptedException {
+    public void setCountryField(int countryIndex){
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(countryField));
         Select chooseCountry = new Select(driver.findElement(countryField));
         chooseCountry.selectByIndex(countryIndex);
     }
-    public void setStateField(int stateIndex) throws InterruptedException {
-        Thread.sleep(1000);
-        //wait.until(ExpectedConditions.elementToBeSelected(stateField));
+    public void setStateField(int stateIndex) {
+        wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(stateField,stateFieldChildLocator));
         Select chooseState = new Select(driver.findElement(stateField));
         chooseState.selectByIndex(stateIndex);
     }
@@ -101,14 +102,12 @@ public class CheckoutPage {
     public void setGroundShippingMethod(){
         driver.findElement(groundShippingMethod).click();
     }
-    public void clickShippingContinueBtn() throws InterruptedException {
-        //Thread.sleep(1000);
+    public void clickShippingContinueBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(shippingContinueBtn));
         driver.findElement(shippingContinueBtn).click();
     }
     //PaymentMethod
-    public void choosePaymentMethod() throws InterruptedException {
-        //Thread.sleep(1000);
+    public void choosePaymentMethod() {
         wait.until(ExpectedConditions.elementToBeClickable(paymentMethodCC));
         driver.findElement(paymentMethodCC).click();
     }
@@ -117,7 +116,7 @@ public class CheckoutPage {
     }
 
     //CreditCardDetails
-    public void selectCreditType(String option) throws InterruptedException {
+    public void selectCreditType(String option) {
         //Thread.sleep(1000);
         wait.until(ExpectedConditions.elementToBeClickable(creditCardType));
         Select select = new Select(driver.findElement(creditCardType));
@@ -144,7 +143,7 @@ public class CheckoutPage {
     public Boolean checkCartTable (){
         return driver.findElement(cartTableOfContent).isDisplayed();
     }
-    public CheckoutCompletePage clickConfirmationContinueBtn() throws InterruptedException {
+    public CheckoutCompletePage clickConfirmationContinueBtn() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(confirmationContinueBtn));
         driver.findElement(confirmationContinueBtn).click();
         return new CheckoutCompletePage(driver);

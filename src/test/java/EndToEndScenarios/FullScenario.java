@@ -14,10 +14,10 @@ public class FullScenario extends BaseTests {
     public CheckoutCompletePage checkoutComplete;
     private String firstName = "Mohamed";
     private String lastName = "Ahmed";
-    private String email = "mohamed1297@gmail.com";
+    private String email = "mohamed11297@gmail.com";
     private String pass = "12345678";
     @Test
-    public void fullUserPurchaseScenario() throws InterruptedException {
+    public void fullUserPurchaseScenario(){
         testSuccessfulRegister(firstName,lastName,email,pass);
         homePage.clickLogin_Nav();
         testSuccessfulLogin(email,pass);
@@ -60,7 +60,7 @@ public class FullScenario extends BaseTests {
         loginPage.setRememberCheck();
         loginPage.clickLogin();
     }
-    public void fillProductID1() throws InterruptedException {
+    public void fillProductID1() {
         productID1 = homePage.clickProduct1Cart();
         String option = "2.2 GHz Intel Pentium Dual-Core E2200"; //"2.5 GHz Intel Pentium Dual-Core E2200 [+$15.00]"
         productID1.selectProcessor(option); //Added WebDriverWait to selectProcessor Method because of NoSuchElementException
@@ -74,7 +74,7 @@ public class FullScenario extends BaseTests {
         productID1.closeNotification();
         cartPage = productID1.navToCart();
     }
-    public void fillCheckout() throws InterruptedException {
+    public void fillCheckout() {
         checkoutPage.clickDeleteSavedAddress();
         checkoutPage.setFName(firstName);
         checkoutPage.setLName(lastName);

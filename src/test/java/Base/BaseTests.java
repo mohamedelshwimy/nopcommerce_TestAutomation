@@ -35,7 +35,7 @@ public class BaseTests {
 
     @AfterClass
     public void tearDown(){
-        driver.quit();
+        //driver.quit();
     }
     @DataProvider
     public Object [] [] logInData () {
